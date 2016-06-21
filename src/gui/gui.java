@@ -207,8 +207,8 @@ public class gui extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLinkActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        if (txtNormal2.getText().length() <= 0 || txtBcrypt2.getText().length() <= 0) {
-            txtResultado2.setText("No se ha ingresado texto en alguno de los dos campos a comprobar");
+        if (txtNormal2.getText().length() <= 0 || txtBcrypt2.getText().length() <= 0 || !txtBcrypt2.getText().startsWith("$2a$")) {
+            txtResultado2.setText("No se ha ingresado texto en alguno de los dos campos a comprobar o se ha ingresado un Hash BCrypt incorrecto");
         } else {
             String normal = txtNormal2.getText();
             String bcrypt = txtBcrypt2.getText();
@@ -234,7 +234,7 @@ public class gui extends javax.swing.JFrame {
                         + "Nota: Las cadenas BCrypt pueden dar diferentes resultados textuales "
                         + "pero siguen siendo comprobables con la cadena original.";
             }
-            
+
             this.SystemOut(salida_terminal);
         }
     }//GEN-LAST:event_jButton2ActionPerformed
